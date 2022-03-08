@@ -2,9 +2,9 @@
 	Write a function that evaluates a number to see if it is even or not and returns false or true
 
 	source: Eloquent Javascript book
-*/ 
+	*/ 
 
-let isEven = function (n) {
+var isEven = function (n) {
   if (n === 0) return true;
   else if (n === 1 || n === -1) return false;
   else {
