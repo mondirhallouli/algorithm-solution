@@ -17,4 +17,8 @@ let multiSum = function(min, max) {
 	return result;
 };
 
-console.log(multiSum(0, 1000));
+describe('sum of multiples of 5 and/or 3', () => {
+	test('example from problem text', () => {
+		expect(multiSum(0, 10)).toBe(23);
+	});
+});
