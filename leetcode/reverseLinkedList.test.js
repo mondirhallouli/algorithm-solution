@@ -1,6 +1,6 @@
 /* 
     -> Runtime: O(n) -> n: number of nodes in the list
-    -> Memory Usage: O(n) -> n: number of bindings that take up space in memory
+    -> Memory Usage: O(1) -> same pointers take same space in memory, we just update their values
 */
 
 function reverseList(head) {
