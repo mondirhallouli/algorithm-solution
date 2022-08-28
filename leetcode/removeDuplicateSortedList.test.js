@@ -1,10 +1,14 @@
 /* 
 delete duplicate nodes and return the list
+Big O:
+-----
+Time: O(n), n: the number of nodes in the list
+space: O(1), we operate directly on the list, and we have a single(2 if you count the function argument) variable as a reference;
 */
 
 function deleteDuplicates(head) {
     let output = head;
-    while (head.next) {
+    while (head) {
         if (head.next === null) break;
         if (head.val === head.next.val) {
             head.next = head.next.next;
