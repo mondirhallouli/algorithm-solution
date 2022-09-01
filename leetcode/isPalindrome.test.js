@@ -37,7 +37,8 @@
 */
 
 let isPalindrome = function(head) {
-    let slow = fast = head, previouNode, nextNode;
+    let slow = fast = head, previousNode, nextNode;
+    if (!head) return false;
     while (fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
