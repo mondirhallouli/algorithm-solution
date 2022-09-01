@@ -36,7 +36,7 @@
     Space: O(1)
 */
 
-let isPalindrome2 = function(head) {
+let isPalindrome = function(head) {
     let slow = fast = head, previouNode, nextNode;
     while (fast && fast.next) {
         slow = slow.next;
