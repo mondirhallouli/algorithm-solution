@@ -42,7 +42,8 @@ describe("tests from problem text", () => {
         expect(getIntersectionNode(a,b)).toBe(null);
     })
 
-    test('short lists -- 2 nodes each', () => {
+    // LISTS OF 2 NODES
+    test('2 nodes lists -- intersection at end', () => {
         intersection = {val: 2, next: null};
         a = {val: 1, next: intersection};
         b = {val: 5, next: intersection};
@@ -50,7 +51,24 @@ describe("tests from problem text", () => {
         expect(getIntersectionNode(a,b)).toEqual(intersection);
     })
     
-    test('short lists -- 3 nodes each', () => {
+    test('2 nodes lists -- intersection at start', () => {
+        intersection = {val: 2, next: null};
+        a = intersection, b = intersection;
+        a.next = {val: 1, next: null};
+        b.next = {val: 4, next: null};
+        expect(getIntersectionNode(a,b)).toEqual(intersection);
+    })
+    
+    // LISTS OF 3 NODES
+    test('3 nodes lists -- intersection at start', () => {
+        intersection = {val: 2, next: {val: 3, next: null}};
+        a = intersection, b = intersection;
+        a.next.next = {val: 1, next: null};
+        b.next.next = {val: 4, next: null};
+        expect(getIntersectionNode(a,b)).toEqual(intersection);
+    })
+    
+    test('3 nodes lists -- intersection at end', () => {
         intersection = {val: 2, next: {val: 3, next: null}};
         a = {val: 1, next: intersection };
         b = {val: 5, next: intersection };
@@ -58,7 +76,27 @@ describe("tests from problem text", () => {
         expect(getIntersectionNode(a,b)).toEqual(intersection);
     })
 
-    test("test from example 1", () => {
+    // LISTS OF DIFFERENT LENGTHS
+    test("lists of different lengths -- intersection at start", () => {
+        intersection = {val: 8, next: {val: 4, next: {val: 5, next: null}}};
+        a = intersection, b = intersection;
+        a.next.next.next = {val: 1, next: {val: 3, next: null}};
+        b.next.next.next = {val: 7, next: null};
+
+        expect(getIntersectionNode(a,b)).toEqual(intersection);
+    });
+    
+    test("lists of different lengths -- intersection at middle", () => {
+        intersection = {val: 8, next: {val: 4, next: null}};
+        a = {val: 1, next: intersection};
+        b = {val: 3, next: {val: 2, next: intersection}};
+        a.next.next.next = {val: 6, next: null};
+        b.next.next.next.next = {val: 5, next: {val: 7, next: null}};
+
+        expect(getIntersectionNode(a,b)).toEqual(intersection);
+    });
+
+    test("lists of different lengths -- intersection at end", () => {
         intersection = {val: 8, next: {val: 4, next: {val: 5, next: null}}};
         a = {val: 4, next: {val: 1, next: intersection}};
         b = {val: 5, next: {val: 6, next: {val: 1, next: intersection }}};
